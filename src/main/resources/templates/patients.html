@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пациенты</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    .table-hover tbody tr:hover {
+      background-color: rgba(0, 123, 255, 0.05);
+    }
+    .action-buttons .btn {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="h4 mb-0"><i class="bi bi-people-fill me-2"></i>Список пациентов</h1>
+        <a th:href="@{/patients/new}" class="btn btn-light btn-sm">
+          <i class="bi bi-plus-circle"></i> Добавить пациента
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Участок</th>
+            <th scope="col" class="text-center">Записаться на прием</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="patient, stat : ${patients}">
+            <td th:text="${stat.count}"></td>
+            <td th:text="${patient.lastName}"></td>
+            <td th:text="${patient.firstName}"></td>
+            <td th:text="${patient.district.districtName}"></td>
+            <td class="action-buttons text-center">
+              <a th:href="@{/appointments/book(patientId=${patient.patientId})}"
+                 class="btn btn-primary btn-sm"
+                 title="Записаться к врачу">
+                <i class="bi bi-calendar-plus"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">Всего пациентов: <span th:text="${patients.size()}"></span></small>
+        <a th:href="@{/}" class="btn btn-outline-secondary btn-sm">
+          <i class="bi bi-house-door"></i> На главную
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
