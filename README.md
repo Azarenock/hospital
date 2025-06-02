@@ -23,7 +23,7 @@ https://github.com/Azarenock/hospital.git
 ![image](https://github.com/user-attachments/assets/a2fa6508-0296-4973-aae5-0e7487a0a7ab)
 ![image](https://github.com/user-attachments/assets/12f24262-4486-43b2-9488-b8b09ddb0636)
 
-##Основные интерфейсы приложения
+## Основные интерфейсы приложения
 ![image](https://github.com/user-attachments/assets/1c3605d8-743c-4d26-9548-979d45f67895)
 ![image](https://github.com/user-attachments/assets/8f40125a-ed32-4f3e-bdce-d2917a454dfb)
 ![image](https://github.com/user-attachments/assets/8e67d965-32c9-4046-b38b-14f75ad3c505)
